@@ -19,7 +19,7 @@ const Header = () => {
 
       {/* Hamburger for mobile */}
       <button
-        className="md:hidden flex items-center p-2"
+        className="lg:hidden flex items-center p-2"
         onClick={() => setMobileOpen((open) => !open)}
         aria-label="Toggle menu"
       >
@@ -29,7 +29,7 @@ const Header = () => {
       </button>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:flex flex-grow gap-2 items-center font-regular text-gray-500 ml-8">
+      <nav className="hidden lg:flex flex-grow gap-2 items-center font-regular text-gray-500 ml-8">
         <Link href="/about-us" className="px-3 py-2 bg-white text-sm rounded-md hover:text-primary hover:bg-gray-100">About us</Link>
         <div className="relative group">
           <Link
@@ -57,7 +57,7 @@ const Header = () => {
       </nav>
 
       {/* CTA Section (desktop) */}
-      <div className="hidden md:flex items-center gap-4 ml-4">
+      <div className="hidden lg:flex items-center gap-4 ml-4">
         <GhostButton href="tel:+911234567890">Talk to Expert</GhostButton>
         <PrimaryButton href="/contact">Get in Touch</PrimaryButton>
       </div>

@@ -11,10 +11,31 @@ const geistSans = Geist({
 });
 
 
-export const metadata: Metadata = {
-  title: 'Excel Coatings - Advanced Nano Coatings',
-  description:
-    'Protect your surfaces with advanced nano coatings from Excel Coatings. Reflect heat, seal surfaces, and ensure long-lasting protection.',
+export const metadata = {
+  title: "Excel Coatings - Advanced Nano Coatings",
+  description: "Protect your home or business with our advanced heat-reflective and waterproof coatings.",
+  openGraph: {
+    title: "Excel Coatings - Advanced Nano Coatings",
+    description: "Protect your home or business with our advanced heat-reflective and waterproof coatings.",
+    url: "https://www.xlcoatings.com",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Excel Coatings - Advanced Nano Coatings",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@CoatingsExcel",
+    creator: "@CoatingsExcel",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -25,11 +46,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable}`}>
-        <div className="bg-zinc-200 min-h-screen flex flex-col px-3 py-3 gap-3">
-          <Header />
+          <div className="bg-zinc-200 min-h-screen flex flex-col px-2 py-2 gap-2 sm:px-3 sm:py-3 sm:gap-3">
+            <Header />
           <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+            <Footer />
+          </div>
       </body>
     </html>
   );

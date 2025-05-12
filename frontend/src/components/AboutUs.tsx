@@ -3,6 +3,9 @@
 
 import React from "react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import Badge from "@/components/Badge";
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon } from '@hugeicons-pro/core-stroke-standard';
 
 const AboutUs = () => {
   return (
@@ -10,9 +13,7 @@ const AboutUs = () => {
       <div className="flex flex-col md:flex-row gap-5 md:gap-10 lg:gap-14 xl:gap-20 items-end gap-8">
         {/* Left Section */}
         <div className="flex-1 flex flex-col gap-3">
-          <div className="flex items-center gap-2">
-            <span className="bg-yellow-100 text-yellow-700 text-xs px-2 py-1 rounded-full">• About us</span>
-          </div>
+          <Badge variant="yellow"> <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" /> About us</Badge>
           <h2 className="text-5xl font-medium font-geist leading-tight">
             India's Leading Nano Coating Innovator Since 2007 Protecting Over 4,000+ Buildings Nationwide.
           </h2>

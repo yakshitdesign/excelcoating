@@ -2,8 +2,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronRight } from "lucide-react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
+import Badge from "@/components/Badge";
+import { HugeiconsIcon } from '@hugeicons/react';
+import { ArrowRight01Icon } from '@hugeicons-pro/core-stroke-standard';
+import Image from "next/image";
+
+type BenefitColor = 'yellow' | 'blue' | 'orange' | 'green';
 
 export default function Benefits() {
   const [activeSection, setActiveSection] = useState(0);
@@ -41,44 +46,35 @@ export default function Benefits() {
   }, []);
 
   return (
-    <section className="min-h-screen bg-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row gap-8 lg:gap-16">
+    <section className="relative min-h-screen bg-white rounded-2xl">
+      <div className="flex flex-col lg:flex-row">
         {/* Left side content */}
-        <div className="lg:w-1/2 lg:sticky lg:top-24 lg:self-start">
-          <div className="mb-6">
-            <span className="inline-flex items-center text-yellow-600 text-sm font-medium">
-              <ChevronRight className="h-4 w-4 mr-1" />
-              Benefits
-            </span>
+        <div className="w-full lg:w-1/2 lg:sticky lg:top-0 self-start h-fit flex flex-col gap-12 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20 z-10">
+          <div className="flex flex-col max-w-xl gap-4">
+            <Badge variant="yellow">
+              <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" /> Benefits
+              </Badge>
+            <h1 className="text-6xl font-medium font-geist leading-tight">Why Choose Excel Coatings?</h1>
+            <p className="text-lg text-gray-600">
+              From heat reflection to waterproofing, Excel Coatings deliver lasting results for homes, industries, and green buildings.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Why Choose Excel Coatings?</h1>
-          <p className="text-lg text-gray-600 mb-8">
-            From heat reflection to waterproofing, Excel Coatings deliver lasting results for homes, industries, and green buildings.
-          </p>
-          <PrimaryButton href="/products">Explore Our Coatings</PrimaryButton>
+          <div className="flex">
+            <PrimaryButton href="/products" size="lg">Explore Our Coatings</PrimaryButton>
+          </div>
         </div>
 
         {/* Right side scrolling content */}
-        <div ref={containerRef} className="lg:w-1/2 relative">
-          <div className="lg:h-[400px] lg:sticky lg:top-24 overflow-hidden">
-            {benefitData.map((benefit, index) => (
-              <BenefitCard
-                key={index}
-                index={index}
-                activeSection={activeSection}
-                title={benefit.title}
-                description={benefit.description}
-                bg={benefit.bg}
-              />
-            ))}
-          </div>
-
-          {/* Invisible scroll triggers */}
-          <div className="space-y-[80vh]">
-            {benefitData.map((_, index) => (
-              <div key={index} ref={el => { sectionRefs.current[index] = el; }} className="h-1" />
-            ))}
-          </div>
+        <div className="w-full lg:w-1/2 flex flex-col gap-10 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20">
+          {benefitData.map((benefit, index) => (
+            <BenefitCard
+              key={index}
+              title={benefit.title}
+              description={benefit.description}
+              bg={benefit.bg}
+              color={benefit.color}
+            />
+          ))}
         </div>
       </div>
     </section>
@@ -86,43 +82,72 @@ export default function Benefits() {
 }
 
 // Reusable Benefit Card Component
-function BenefitCard({ index, activeSection, title, description, bg }: any) {
+function BenefitCard({
+  title,
+  description,
+  bg,
+  color,
+}: {
+  title: string;
+  description: string;
+  bg: string;
+  color: BenefitColor;
+}) {
+  // Map color to border and badge classes
+  const colorMap = {
+    yellow: "bg-[#E6A100]",
+    blue: "bg-[#2563EB]",
+    orange: "bg-[#FF7A00]",
+    green: "bg-[#22C55E]",
+  };
+  const badgeBg = colorMap[color] || "bg-[#E6A100]";
+
   return (
-    <div
-      className={`absolute inset-0 h-[400px] rounded-xl p-8 transition-all duration-700 ease-out ${bg} ${
-        activeSection >= index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-full"
-      } ${activeSection > index ? "scale-95 -translate-y-6 opacity-0" : ""}`}
-    >
-      <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-6 ${bg === "bg-blue-50" ? "bg-blue-500 text-white" : bg === "bg-green-50" ? "bg-green-500 text-white" : "bg-yellow-500 text-white"}`}>
-        <ChevronRight className="h-4 w-4 mr-1" />
-        {title}
+    <div className={`rounded-xl ${bg} overflow-hidden`}>
+      <div className={`w-full h-4 ${badgeBg}`}></div>
+      <div className="flex flex-col gap-4 p-5 md:p-8 lg:p-10 h-[320px] md:h-[400px] justify-between">
+        <div className={`w-fit inline-flex items-center px-3 py-2 rounded-full text-md font-regular ${badgeBg} text-white`}>
+          <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4 mr-1" />
+          {title}
+        </div>
+        <div className="flex flex-col gap-3">
+          <h2 className="text-3xl font-medium text-gray-900">{title}</h2>
+          <p className="text-lg text-gray-600">{description}</p>
+        </div>
       </div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-4">{title}</h2>
-      <p className="text-gray-600">{description}</p>
     </div>
   );
 }
 
 // Benefit Data for Easy Configuration
-const benefitData = [
+const benefitData: {
+  title: string;
+  description: string;
+  bg: string;
+  color: BenefitColor;
+}[] = [
   {
     title: "Heat Reduction",
-    description: "Keep your space cooler by reflecting sunlight and reducing roof temperature by up to 20°C.",
+    description: "Our advanced nano-coatings reflect sunlight, reducing roof temperature by up to 20°C, making your interiors comfortably cool even during peak summer.",
     bg: "bg-yellow-50",
+    color: "yellow",
   },
   {
     title: "Absolute Waterproofing",
-    description: "Stop leaks before they start with advanced waterproofing solutions.",
+    description: "Create a water-repellent barrier that keeps surfaces dry, prevents moisture damage, and extends the lifespan of your building.",
     bg: "bg-blue-50",
+    color: "blue",
   },
   {
     title: "Energy Efficiency Guaranteed",
-    description: "Cut cooling costs by 30% with our energy-efficient coatings.",
+    description: "Save on energy bills with our heat-reflective coatings, which reduce the load on air conditioning without compromising comfort.",
     bg: "bg-orange-50",
+    color: "orange",
   },
   {
     title: "Eco-Friendly and Certified",
-    description: "Our coatings are GRIHA-certified, eco-friendly, and non-toxic.",
+    description: "Our coatings are GRIHA-certified, eco-friendly, and non-toxic, ensuring a sustainable solution for your home or business.",
     bg: "bg-green-50",
+    color: "green",
   },
 ];
