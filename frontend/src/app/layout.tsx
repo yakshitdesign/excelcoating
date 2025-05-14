@@ -1,6 +1,6 @@
 // src/app/layout.tsx
 import './globals.css';
-// import { Metadata } from 'next';
+import type { Metadata } from 'next';
 import { Geist } from "next/font/google";
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -10,8 +10,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-
-export const metadata = {
+export const metadata: Metadata = {
   title: "Excel Coatings - Advanced Nano Coatings",
   description: "Protect your home or business with our advanced heat-reflective and waterproof coatings.",
   openGraph: {

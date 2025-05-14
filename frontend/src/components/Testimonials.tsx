@@ -8,29 +8,26 @@ import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
 
 export default function Testimonials() {
-  // Remove unused secondRow
-  const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
-  // const secondRow = testimonialsData.slice(testimonialsData.length / 2);
-
+  const firstRow = testimonialsData;
   return (
     <section className="bg-white rounded-2xl flex flex-col gap-5 md:gap-10 lg:gap-14 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20">
       <div className="flex flex-col gap-4 justify-center items-center">
-          <Badge variant="yellow">
-            <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" /> Testimonials
-          </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-geist leading-tight text-center max-w-full md:max-w-2xl">
-            Real stories from industries, institutions, and homeowners.
-          </h2>
-        </div>
+        <Badge variant="yellow">
+          <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" /> Testimonials
+        </Badge>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-geist leading-tight text-center max-w-full md:max-w-2xl">
+          Real stories from industries, institutions, and homeowners.
+        </h2>
+      </div>
 
-        <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-4 md:gap-8 ">
-          <Marquee pauseOnHover className="[--duration:20s]">
-            {firstRow.map((testimonial, index) => (
-              <TestimonialCard key={index} {...testimonial} />
-            ))}
-          </Marquee>
-          <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white"></div>
-        </div>
+      <div className="relative flex w-full flex-col items-center justify-center overflow-hidden gap-4 md:gap-8">
+        <Marquee pauseOnHover className="[--duration:20s]">
+          {firstRow.map((testimonial, index) => (
+            <TestimonialCard key={index} {...testimonial} />
+          ))}
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-white"></div>
+      </div>
     </section>
   );
 }

@@ -19,7 +19,7 @@ export default function Benefits() {
           if (entry.isIntersecting) {
             const index = sectionRefs.current.findIndex((ref) => ref === entry.target);
             if (index !== -1) {
-              // setActiveSection(index);
+              // Handle intersection if needed
             }
           }
         });
@@ -31,12 +31,13 @@ export default function Benefits() {
       }
     );
 
-    sectionRefs.current.forEach((ref) => {
+    const currentRefs = [...sectionRefs.current];
+    currentRefs.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
 
     return () => {
-      sectionRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) observer.unobserve(ref);
       });
     };
