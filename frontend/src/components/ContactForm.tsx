@@ -38,11 +38,13 @@ export default function ContactForm() {
       </div>
 
       {/* Right Side (Contact Form) */}
-      <div className="bg-white rounded-2xl gap-5 md:gap-10 lg:gap-14 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20 flex-1 flex flex-col justify-center">
-        <h2 className="text-4xl font-bold font-geist mb-4">Get in Touch with Us</h2>
-        <p className="text-gray-600 mb-6">
-          Have questions? Need a custom solution? Our experts are here to help.
-        </p>
+      <div className="bg-white rounded-2xl gap-5 md:gap-10 lg:gap-14 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20 flex-1 flex flex-col justify-between">
+        <div className="flex flex-col gap-4">
+          <h2 className="text-4xl font-bold font-geist">Get in Touch with Us</h2>
+          <p className="text-gray-600">
+            Have questions? Need a custom solution? Our experts are here to help.
+          </p>
+        </div>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

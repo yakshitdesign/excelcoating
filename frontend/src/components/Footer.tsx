@@ -4,11 +4,11 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-900 text-white py-12 px-6 md:px-12">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="flex flex-col items-center bg-neutral-900 text-white rounded-2xl gap-5 md:gap-10 lg:gap-14 xl:gap-20 px-4 pt-4 md:px-10 md:pt-10 lg:px-14 lg:pt-14 xl:px-20 xl:pt-20 pb-4 md:pb-6 lg:pb-8 xl:pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
         {/* Logo and Description */}
         <div className="col-span-1">
-          <Image src="/logo.png" alt="Excel Coatings Logo" width={150} height={50} />
+          <Image src="/images/excel-dark.png" alt="Excel Coatings Logo" width={150} height={50} />
           <p className="text-gray-400 mt-4 max-w-xs">
             Protect your home or business with our advanced heat-reflective coatings.
           </p>
@@ -53,11 +53,19 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
-        <p>© 2025 EXCEL Coatings. All rights reserved</p>
-        <div className="flex gap-4 mt-2 md:mt-0">
-          <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-white">Terms & Conditions</Link>
+      <div className="w-full mt-8 border-t border-gray-700 pt-4 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+        <div className="flex gap-4">
+          <p>© 2025 EXCEL Coatings. All rights reserved</p>
+          <div className="flex gap-2">
+            <Link href="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-white">Terms & Conditions</Link>
+          </div>
+        </div>
+        <div>
+          <Link href="https://genieus.studio?utm_source=excel-coatings&utm_medium=referral&utm_campaign=xlcoatings.com" target="_blank" className="flex gap-2 items-center text-gray-400 text-md hover:text-white cursor-pointer">
+            <span style={{ color: 'inherit' }}>Built by</span>
+            <Image src="/logos/genieus-light.png" alt="Genieus Studio" width={67} height={18} />
+          </Link>
         </div>
       </div>
     </footer>

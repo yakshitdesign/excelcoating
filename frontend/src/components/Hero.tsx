@@ -24,7 +24,7 @@ const Hero = () => {
         </a>
         <div className="flex flex-col gap-5">
           <motion.h1
-            className="ttext-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium font-geist leading-tighter tracking-tight"
+            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-medium font-geist leading-tighter tracking-tight"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
