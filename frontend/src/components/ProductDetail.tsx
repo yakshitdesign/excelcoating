@@ -13,18 +13,23 @@ interface ProductDetailProps {
 
 export default function ProductDetail({ slug }: ProductDetailProps) {
   // This is a placeholder. In a real application, you would fetch product data based on the slug
-  const product = {
-    name: 'Excel CoolCoat',
-    description: 'Advanced heat reflective coating that reduces roof temperature by up to 20°C.',
-    features: [
-      'Reflects up to 90% of sunlight',
-      'Reduces roof temperature by up to 20°C',
-      'Energy savings of up to 30%',
-      'Long-lasting protection',
-      'Environmentally friendly',
-    ],
-    image: '/images/coolcoat.jpg',
+  const products = {
+    'coolcoat': {
+      name: 'Excel CoolCoat',
+      description: 'Advanced heat reflective coating that reduces roof temperature by up to 20°C.',
+      features: [
+        'Reflects up to 90% of sunlight',
+        'Reduces roof temperature by up to 20°C',
+        'Energy savings of up to 30%',
+        'Long-lasting protection',
+        'Environmentally friendly',
+      ],
+      image: '/images/coolcoat.jpg',
+    },
+    // Add more products here as needed
   };
+
+  const product = products[slug as keyof typeof products] || products.coolcoat;
 
   return (
     <section className="bg-white rounded-2xl flex flex-col gap-5 md:gap-10 lg:gap-14 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20">
