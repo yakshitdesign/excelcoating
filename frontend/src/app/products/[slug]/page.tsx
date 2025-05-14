@@ -1,16 +1,11 @@
-'use client';
-
 import React from 'react';
 import ProductDetail from '@/components/ProductDetail';
 
-type Props = {
-  params: {
-    slug: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default function ProductPage({ params }: Props) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   // For now, we'll just pass the slug to the ProductDetail component
   // Later we can add logic to fetch product data based on the slug
   return (
