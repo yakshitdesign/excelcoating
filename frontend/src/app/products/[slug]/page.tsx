@@ -3,13 +3,14 @@
 import React from 'react';
 import ProductDetail from '@/components/ProductDetail';
 
-interface ProductPageProps {
+type Props = {
   params: {
     slug: string;
   };
-}
+  searchParams: { [key: string]: string | string[] | undefined };
+};
 
-export default function ProductPage({ params }: ProductPageProps) {
+export default function ProductPage({ params }: Props) {
   // For now, we'll just pass the slug to the ProductDetail component
   // Later we can add logic to fetch product data based on the slug
   return (

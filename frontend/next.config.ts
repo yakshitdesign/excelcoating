@@ -3,11 +3,11 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true, // For optimized build performance
   images: {
-    domains: [], // Add any external image domains you use
+    domains: ['images.unsplash.com'],
   },
   experimental: {
-    appDir: true, // Ensure this is enabled for App Router
+    // Remove deprecated options
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
