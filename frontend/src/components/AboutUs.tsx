@@ -15,7 +15,7 @@ const AboutUs = () => {
         <div className="flex-1 flex flex-col gap-3">
           <Badge variant="yellow"> <HugeiconsIcon icon={ArrowRight01Icon} className="w-4 h-4" /> About us</Badge>
           <h2 className="text-3xl lg:text-4xl xl:text-5xl font-medium font-geist leading-tight">
-            India's Leading Nano Coating Innovator Since 2007 Protecting Over 4,000+ Buildings Nationwide.
+            India&apos;s Leading Nano Coating Innovator Since 2007 Protecting Over 4,000+ Buildings Nationwide.
           </h2>
         </div>
 

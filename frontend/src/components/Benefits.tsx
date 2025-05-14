@@ -1,19 +1,16 @@
 // src/app/components/Benefits.tsx
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import PrimaryButton from "@/components/Buttons/PrimaryButton";
 import Badge from "@/components/Badge";
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@hugeicons-pro/core-stroke-standard';
-import Image from "next/image";
 
 type BenefitColor = 'yellow' | 'blue' | 'orange' | 'green';
 
 export default function Benefits() {
-  const [activeSection, setActiveSection] = useState(0);
   const sectionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -22,7 +19,7 @@ export default function Benefits() {
           if (entry.isIntersecting) {
             const index = sectionRefs.current.findIndex((ref) => ref === entry.target);
             if (index !== -1) {
-              setActiveSection(index);
+              // setActiveSection(index);
             }
           }
         });

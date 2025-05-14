@@ -8,6 +8,14 @@ import PrimaryButton from "./Buttons/PrimaryButton";
 import Badge from "./Badge";
 import { HugeiconsIcon } from '@hugeicons/react';
 
+// Add interface for BlogCard props
+interface BlogCardProps {
+  title: string;
+  description: string;
+  category: string;
+  image: string;
+}
+
 export default function BlogSection() {
   return (
     <section className="bg-white rounded-2xl flex flex-col gap-5 md:gap-10 lg:gap-14 xl:gap-20 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20">
@@ -39,8 +47,8 @@ export default function BlogSection() {
   );
 }
 
-// Blog Card Component
-function BlogCard({ title, description, category, image }: any) {
+// Update BlogCard component
+function BlogCard({ title, description, category, image }: BlogCardProps) {
   return (
     <div className="flex flex-col gap-4">
       <div className="relative w-full aspect-[16/9] rounded-lg overflow-hidden">

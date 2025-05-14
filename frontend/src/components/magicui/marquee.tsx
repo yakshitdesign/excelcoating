@@ -25,7 +25,6 @@ export function Marquee({
     const content = contentRef.current;
     if (!container || !content) return;
 
-    const containerWidth = container.offsetWidth;
     const contentWidth = content.offsetWidth / 2; // Divide by 2 since we duplicate content
     const duration = contentWidth * 0.03; // Slightly slower for smoother transition
 

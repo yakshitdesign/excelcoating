@@ -1,7 +1,6 @@
 // src/app/components/Testimonials.tsx
 "use client";
 
-import Image from "next/image";
 import Badge from "@/components/Badge";
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight01Icon } from '@hugeicons-pro/core-stroke-standard';
@@ -9,9 +8,9 @@ import { Marquee } from "@/components/magicui/marquee";
 import { cn } from "@/lib/utils";
 
 export default function Testimonials() {
-  // Split testimonials into two rows
+  // Remove unused secondRow
   const firstRow = testimonialsData.slice(0, testimonialsData.length / 2);
-  const secondRow = testimonialsData.slice(testimonialsData.length / 2);
+  // const secondRow = testimonialsData.slice(testimonialsData.length / 2);
 
   return (
     <section className="bg-white rounded-2xl flex flex-col gap-5 md:gap-10 lg:gap-14 px-4 py-4 md:px-10 md:py-10 lg:px-14 lg:py-14 xl:px-20 xl:py-20">
